@@ -1,13 +1,13 @@
 from pickle import TRUE
 import urllib.request
-from bs4 import BeautifulSoup, formatter
+from bs4 import BeautifulSoup
 import re
 import requests
 import hashlib
 import os
 from datetime import datetime
 
-DEBUG = True
+DEBUG = False
 TIMEFORMAT = "%m/%d/%Y - %H:%M:%S"
 
 class ticket:
