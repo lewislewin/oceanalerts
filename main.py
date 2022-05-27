@@ -6,8 +6,11 @@ import requests
 import hashlib
 import os
 from datetime import datetime
+import json
+import boto3
 
-DEBUG = False
+
+DEBUG = True
 TIMEFORMAT = "%m/%d/%Y - %H:%M:%S"
 
 class ticket:
@@ -76,6 +79,13 @@ def sendAlert(message):
     else:
         response = "INFO: Debug mode, no data returned"
 
+    print(response)
+    client = boto3.client('sns')
+    response = client.publish(
+    TargetArn='arn:aws:sns:eu-west-2:169498589229:ocean-alerts',
+    Message=message,
+    MessageStructure='string'
+    )
     print(response)
     print('INFO: Tickets have been updated at: ', datetime.now().strftime(TIMEFORMAT))
     print(datetime.now())
