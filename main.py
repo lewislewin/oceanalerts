@@ -80,13 +80,6 @@ def sendAlert(message):
         response = "INFO: Debug mode, no data returned"
 
     print(response)
-    client = boto3.client('sns')
-    response = client.publish(
-    TargetArn='arn:aws:sns:eu-west-2:169498589229:ocean-alerts',
-    Message='OCEAN TICKETS NOW AVAILABLE. https://oceantickets.ecwid.com/TRENT-WEDNESDAY-TICKETS-c119847321',
-    MessageStructure='string'
-    )
-    print(response)
     print('INFO: Tickets have been updated at: ', datetime.now().strftime(TIMEFORMAT))
     print(datetime.now())
 
@@ -116,3 +109,10 @@ f = open('hashes/' + hashString(ticketString), 'x')
 f.close()
 
 sendMultipleAlerts(ticketString, 5)
+client = boto3.client('sns')
+response = client.publish(
+    TargetArn='arn:aws:sns:eu-west-2:169498589229:ocean-alerts',
+    Message='OCEAN TICKETS NOW AVAILABLE. https://oceantickets.ecwid.com/TRENT-WEDNESDAY-TICKETS-c119847321',
+    MessageStructure='string'
+    )
+print(response)
