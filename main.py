@@ -83,7 +83,7 @@ def sendAlert(message):
     client = boto3.client('sns')
     response = client.publish(
     TargetArn='arn:aws:sns:eu-west-2:169498589229:ocean-alerts',
-    Message=message,
+    Message='OCEAN TICKETS NOW AVAILABLE. https://oceantickets.ecwid.com/TRENT-WEDNESDAY-TICKETS-c119847321',
     MessageStructure='string'
     )
     print(response)
