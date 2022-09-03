@@ -10,7 +10,7 @@ import json
 import boto3
 
 
-DEBUG = True
+DEBUG = False
 TIMEFORMAT = "%m/%d/%Y - %H:%M:%S"
 
 class ticket:
